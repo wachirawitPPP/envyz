@@ -2,27 +2,27 @@ import { getPermalink, getBlogPermalink, getAsset } from './utils/permalinks';
 
 export const headerData = {
   links: [
-    {
-      text: 'Homes',
-      links: [
-        {
-          text: 'SaaS',
-          href: getPermalink('/homes/saas'),
-        },
-        {
-          text: 'Startup',
-          href: getPermalink('/homes/startup'),
-        },
-        {
-          text: 'Mobile App',
-          href: getPermalink('/homes/mobile-app'),
-        },
-        {
-          text: 'Personal',
-          href: getPermalink('/homes/personal'),
-        },
-      ],
-    },
+    // {
+    //   text: 'Homes',
+    //   links: [
+    //     {
+    //       text: 'SaaS',
+    //       href: getPermalink('/homes/saas'),
+    //     },
+    //     {
+    //       text: 'Startup',
+    //       href: getPermalink('/homes/startup'),
+    //     },
+    //     {
+    //       text: 'Mobile App',
+    //       href: getPermalink('/homes/mobile-app'),
+    //     },
+    //     {
+    //       text: 'Personal',
+    //       href: getPermalink('/homes/personal'),
+    //     },
+    //   ],
+    // },
     // {
     //   text: 'Pages',
     //   links: [
@@ -111,17 +111,30 @@ export const headerData = {
     //   ],
     // },
     {
-      text: 'Courses',
+      text: 'Service',
       href: '#',
     },
     {
-      text: 'Products',
+      text: 'Health',
       href: '#',
     },
     {
-      text: 'Promotions',
+      text: 'Wellness',
       href: '#',
     },
+    {
+      text: 'Promotion',
+      href: '#',
+    },
+    {
+      text: 'Review',
+      href: '#',
+    },
+    {
+      text: 'Article',
+      href: '#',
+    },
+    
     // {
     //   text: 'Widgets',
     //   href: '#',
