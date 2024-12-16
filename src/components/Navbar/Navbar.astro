@@ -1,0 +1,62 @@
+---
+---
+
+// Header Component
+<div class="flex items-center justify-between px-4 py-2">
+  <!-- Mobile Menu Toggle -->
+  <div class="flex md:hidden">
+    <button
+      type="button"
+      class="text-gray-700 hover:text-gray-900 focus:outline-none"
+      aria-controls="mobile-menu"
+      aria-expanded="false"
+    >
+      <!-- Icon can be added here using a third-party library like Heroicons -->
+      <span class="block w-6 h-6 bg-gray-700"></span>
+      <span class="block w-6 h-6 bg-gray-700 mt-1"></span>
+      <span class="block w-6 h-6 bg-gray-700 mt-1"></span>
+    </button>
+  </div>
+
+  <!-- Logo -->
+  <div class="flex justify-center">
+    <a href="/" class="inline-block">
+      <img
+        src="/images/logo/logo.svg"
+        alt="Logo"
+        class="w-36 h-auto"
+        loading="lazy"
+      />
+    </a>
+  </div>
+
+  <!-- Navigation Links -->
+  <div class="hidden md:flex space-x-6">
+    <nav>
+      <ul class="flex space-x-6 text-gray-700">
+        <li><a href="/" class="hover:text-gray-900">Home</a></li>
+        <li><a href="/shop" class="hover:text-gray-900">Shop</a></li>
+        <li><a href="/products" class="hover:text-gray-900">Products</a></li>
+        <li><a href="/blog" class="hover:text-gray-900">Blog</a></li>
+        <li><a href="/contact" class="hover:text-gray-900">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <div class="flex space-x-4">
+    <a href="#search" class="text-gray-700 hover:text-gray-900">
+      <i class="icon-search"></i>
+    </a>
+    <a href="#login" class="text-gray-700 hover:text-gray-900">
+      <i class="icon-account"></i>
+    </a>
+    <a href="/wishlist" class="relative text-gray-700 hover:text-gray-900">
+      <i class="icon-heart"></i>
+      <span class="absolute top-0 right-0 bg-red-500 text-white text-xs rounded-full px-1">3</span>
+    </a>
+    <a href="#shoppingCart" class="relative text-gray-700 hover:text-gray-900">
+      <i class="icon-bag"></i>
+      <span class="absolute top-0 right-0 bg-red-500 text-white text-xs rounded-full px-1">0</span>
+    </a>
+  </div>
+</div>
