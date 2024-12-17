@@ -1,4 +1,5 @@
 import { getPermalink, getBlogPermalink, getAsset } from './utils/permalinks';
+console.log(getPermalink)
 
 export const headerData = {
   links: [
@@ -112,15 +113,15 @@ export const headerData = {
     // },
     {
       text: 'Service',
-      href: '#',
+      href: 'service',
     },
     {
       text: 'Health',
-      href: '#',
+      href: 'product',
     },
     {
       text: 'Wellness',
-      href: '#',
+      href: 'wellness',
     },
     {
       text: 'Promotion',
@@ -133,6 +134,35 @@ export const headerData = {
     {
       text: 'Article',
       href: '#',
+    },
+    {
+      text: 'Landing',
+      links: [
+        {
+          text: 'Lead Generation',
+          href: getPermalink('/landing/lead-generation'),
+        },
+        {
+          text: 'Long-form Sales',
+          href: getPermalink('/landing/sales'),
+        },
+        {
+          text: 'Click-Through',
+          href: getPermalink('/landing/click-through'),
+        },
+        {
+          text: 'Product Details (or Services)',
+          href: getPermalink('/landing/product'),
+        },
+        {
+          text: 'Coming Soon or Pre-Launch',
+          href: getPermalink('/landing/pre-launch'),
+        },
+        {
+          text: 'Subscription',
+          href: getPermalink('/landing/subscription'),
+        },
+      ],
     },
     
     // {

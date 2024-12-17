@@ -4,6 +4,7 @@ const translations: Record<string, Translations> = {
   en: await import("./i18n/en.json").then((mod) => mod.default),
   fr: await import("./i18n/fr.json").then((mod) => mod.default),
   th: await import("./i18n/th.json").then((mod) => mod.default),
+  la: await import("./i18n/la.json").then((mod) => mod.default),
 };
 
 // Get translations for a specific locale

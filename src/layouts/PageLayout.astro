@@ -23,7 +23,7 @@ const { metadata,locale } = Astro.props;
     <HeaderAnnounce client:load/>
   </slot> -->
   <slot name="header">
-    <Header position='left' {...headerData} locale={locale} isSticky showRssFeed showToggleTheme />
+    <Header position='right' {...headerData} locale={locale} isSticky showRssFeed showToggleTheme />
   </slot>
   <main>
     <slot />

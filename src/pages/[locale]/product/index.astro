@@ -14,8 +14,13 @@ export function getStaticPaths() {
     { params: { locale: "en" } },
     { params: { locale: "fr" } },
     { params: { locale: "th" } },
+    { params: { locale: "la" } },
   ];
 }
 ---
-<PageLayout  metadata={metadata} locale={locale}/>
+<PageLayout  metadata={metadata} locale={locale}>
+  <div class="h-dvh">
+
+  </div>
+</PageLayout>
 
