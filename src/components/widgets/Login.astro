@@ -1,11 +1,226 @@
----
-import { Icon } from 'astro-icon/components';
----
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Envyz.me Login</title>
+    <style>
+        /* Reset CSS */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Prompt', sans-serif;
+        }
 
-<section class="bg-blue-50 dark:bg-slate-800 not-prose">
-  <div class="max-w-6xl mx-auto px-4 sm:px-6 py-4 text-md text-center font-medium">
-    <span class="font-bold">
-      <Icon name="tabler:info-square" class="w-5 h-5 inline-block align-text-bottom" /> Philosophy:</span
-    > Simplicity, Best Practices and High Performance
-  </div>
-</section>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f1f5f9;
+        }
+
+        /* Login Container */
+        .login-container {
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+            width: 360px;
+            text-align: center;
+        }
+        .login-header {
+    /* background-color: #007bff; เปลี่ยนสีพื้นหลังตามที่ต้องการ */
+    color: #ffffff; /* เปลี่ยนสีข้อความ */
+    padding: 20px;
+    border-radius: 12px; /* เพิ่มความโค้งมนของพื้นหลัง */
+}
+
+.login-header h1 {
+    color: #111c2d; /* เปลี่ยนสีเฉพาะหัวข้อหลัก */
+    font-size: 20px;
+}
+
+.login-header p {
+    color: #ffffff; /* เปลี่ยนสีข้อความรอง */
+    font-size: 14px;
+}
+
+        /* Social Buttons */
+        .social-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .social-buttons button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
+            border: none;
+            border-radius: 6px;
+            font-size: 14px;
+            color: #fff;
+            cursor: pointer;
+            transition: 0.3s;
+            width: 100%;
+        }
+
+        .social-buttons button img {
+            width: 20px;
+            margin-right: 10px;
+        }
+
+        .google-btn {
+            background-color: #db4437;
+        }
+
+        .google-btn:hover {
+            background-color: #c1351d;
+        }
+
+        .facebook-btn {
+            background-color: #3b5998;
+        }
+
+        .facebook-btn:hover {
+            background-color: #2d4373;
+        }
+
+        .apple-btn {
+            background-color: #000000;
+        }
+
+        .apple-btn:hover {
+            background-color: #333;
+        }
+
+        .divider {
+            position: relative;
+            margin: 20px 0;
+            font-size: 14px;
+            color: #aaa;
+        }
+
+        .divider::before, .divider::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            width: 40%;
+            height: 1px;
+            background: #ddd;
+        }
+
+        .divider::before {
+            left: 0;
+        }
+
+        .divider::after {
+            right: 0;
+        }
+
+        /* Input Fields */
+        .input-group {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+
+        .input-group label {
+            font-size: 14px;
+            color: #555;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 14px;
+        }
+
+        .sign-in-btn {
+            width: 100%;
+            padding: 10px;
+            background-color: #00ad98;
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .sign-in-btn:hover {
+            background-color: #085950;
+        }
+
+        .register-link {
+            margin-top: 15px;
+            font-size: 13px;
+            color: #555;
+        }
+
+        .register-link a {
+            color: #00ad98;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .register-link a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <!-- Login Container -->
+    <div class="login-container">
+        <div class="login-header">
+            <h1>Envyz.me by APSTH</h1>
+            <p>Welcome back! Sign in to your account</p>
+        </div>
+
+        <!-- Social Login -->
+        <div class="social-buttons">
+            <!-- Google Login -->
+            <button class="google-btn">
+                <img src="/src/assets/images/google.png" alt="Google"> Sign In with Google
+            </button>
+            <!-- Facebook Login -->
+            <button class="facebook-btn">
+                <img src="/src/assets/images/communication.png" alt="Facebook"> Sign In with Facebook
+            </button>
+            <!-- Apple ID Login -->
+            <button class="apple-btn">
+                <img src="/src/assets/images/apple-black-logo.png" alt="Apple ID"> Sign In with Apple
+            </button>
+        </div>
+
+        <!-- Divider -->
+        <div class="divider">or sign in with</div>
+
+        <!-- Form -->
+        <form>
+            <div class="input-group">
+                <label for="email">Email address</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email" required>
+            </div>
+
+            <div class="input-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="Enter your password" required>
+            </div>
+
+            <button type="submit" class="sign-in-btn">Sign In</button>
+        </form>
+
+        <!-- Register Link -->
+        <p class="register-link">
+            New to Envyz.me? <a href="#">Create an account</a>
+        </p>
+    </div>
+</body>
+</html>
