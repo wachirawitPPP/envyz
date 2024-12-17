@@ -1,53 +1,90 @@
 <!DOCTYPE html>
-<html lang="th">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Envyz.me Login</title>
+    <title>Split Login Page</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Font & Icon Library -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
     <style>
-        /* Reset CSS */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Prompt', sans-serif;
-        }
-
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: #f1f5f9;
-        }
-
-        /* Login Container */
-        .login-container {
-            background: #ffffff;
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
-            width: 360px;
-            text-align: center;
-        }
-        .login-header {
-    /* background-color: #007bff; เปลี่ยนสีพื้นหลังตามที่ต้องการ */
-    color: #ffffff; /* เปลี่ยนสีข้อความ */
-    padding: 20px;
-    border-radius: 12px; /* เพิ่มความโค้งมนของพื้นหลัง */
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Prompt', sans-serif;
 }
 
-.login-header h1 {
-    color: #111c2d; /* เปลี่ยนสีเฉพาะหัวข้อหลัก */
-    font-size: 20px;
+/* Full Page Container */
+.container {
+    display: flex;
+    height: 100vh;
+    background: #f9f9f9;
 }
 
-.login-header p {
-    color: #ffffff; /* เปลี่ยนสีข้อความรอง */
+/* Left Section */
+.left-section {
+    flex: 1;
+    background-color: #0f1c2e;
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 50px;
+    text-align: left;
+}
+
+.left-section h1 {
+    font-size: 36px;
+    margin-bottom: 15px;
+}
+
+.left-section p {
     font-size: 14px;
+    margin-bottom: 20px;
 }
 
-        /* Social Buttons */
+.learn-more-btn {
+    background-color: #00ad98;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 14px;
+    border-radius: 5px;
+}
+
+/* Right Section */
+.right-section {
+    flex: 1;
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    box-shadow: -1px 0px 5px rgba(0, 0, 0, 0.1);
+}
+
+.sign-up-form {
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+}
+
+.sign-up-form h2 {
+    font-size: 28px;
+    margin-bottom: 5px;
+}
+
+.sign-up-form p {
+    font-size: 14px;
+    margin-bottom: 20px;
+    color: #777;
+}
+
+       /* Social Buttons */
         .social-buttons {
             display: flex;
             flex-direction: column;
@@ -172,18 +209,99 @@
 
         .register-link a:hover {
             text-decoration: underline;
-        }
+        }.or-text {
+    display: block;
+    margin: 10px 0;
+    font-size: 12px;
+    color: #888;
+}
+
+.sign-up-form input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.options label {
+    font-size: 14px;
+    color: #777;
+}
+.password-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+.password-options label {
+    color: #555;
+}
+
+.password-options input[type="checkbox"] {
+    margin-right: 5px;
+}
+
+.forgot-password {
+    text-decoration: none;
+    color: #00ad98; /* สีลิงก์ */
+    font-weight: 600;
+}
+
+.forgot-password:hover {
+    text-decoration: underline;
+    color: #007f70; /* สีเมื่อโฮเวอร์ */
+}
+
+.sign-in-btn {
+    width: 100%;
+    background-color: #00ad98;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 5px;
+}
+
+.already-account {
+    margin-top: 15px;
+    font-size: 14px;
+    color: #777;
+}
+
+.already-account a {
+    text-decoration: none;
+    color: #00ad98;
+    font-weight: 600;
+}
     </style>
-</head>
-<body>
     <!-- Login Container -->
-    <div class="login-container">
-        <div class="login-header">
-            <h1>Envyz.me by APSTH</h1>
-            <p>Welcome back! Sign in to your account</p>
+    <div class="container">
+        <!-- Left Section -->
+        <div class="left-section">
+            <h1>Welcome to<br><strong>ENVY.ME</strong></h1>
+            <p>MaterialM helps developers to build organized and well-coded dashboards full of beautiful and rich modules.</p>
+            <button class="learn-more-btn">Learn More</button>
         </div>
 
-        <!-- Social Login -->
+        <!-- Right Section -->
+        <div class="right-section">
+            <form class="sign-up-form">
+                <h2>Sign in</h2>
+                <p>Your Admin Dashboard</p>
+                <div class="social-buttons">
+                     <!-- Social Login -->
         <div class="social-buttons">
             <!-- Google Login -->
             <button class="google-btn">
@@ -198,8 +316,8 @@
                 <img src="/src/assets/images/apple-black-logo.png" alt="Apple ID"> Sign In with Apple
             </button>
         </div>
-
-        <!-- Divider -->
+                </div>
+                <!-- Divider -->
         <div class="divider">or sign in with</div>
 
         <!-- Form -->
@@ -213,14 +331,19 @@
                 <label for="password">Password</label>
                 <input type="password" id="password" name="password" placeholder="Enter your password" required>
             </div>
+            <!-- ปุ่มจดจำรหัสผ่าน และลิงก์ลืมรหัสผ่าน -->
+<div class="password-options">
+    <label>
+        <input type="checkbox" name="remember_password"> Remember Password
+    </label>
+    <a href="#" class="forgot-password">Forgot Password?</a>
+</div>
 
             <button type="submit" class="sign-in-btn">Sign In</button>
         </form>
 
-        <!-- Register Link -->
-        <p class="register-link">
-            New to Envyz.me? <a href="#">Create an account</a>
-        </p>
+            </form>
+        </div>
     </div>
 </body>
 </html>
