@@ -113,7 +113,7 @@ export const headerData = {
     // },
     {
       text: 'Service',
-      href: 'service',
+      href: 'landing',
     },
     {
       text: 'Health',
@@ -125,7 +125,7 @@ export const headerData = {
     },
     {
       text: 'Promotion',
-      href: '#',
+      href: 'promotion',
     },
     {
       text: 'Review',
