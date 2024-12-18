@@ -92,7 +92,7 @@ export default defineConfig({
       },
     },
   },
-  redirects: {
-    '/': '/en', // Change 'en' to your default locale
-  },
+  // redirects: {
+  //   '/': '/en', // Change 'en' to your default locale
+  // },
 });
