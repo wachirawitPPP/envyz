@@ -289,6 +289,148 @@
           <h3>เสริมสวย</h3>
         </div>
       </div>
-    
+      <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>ข้อเสนอพิเศษ</title>
+
+        <style>
+          body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #000;
+          }
+
+          h2 {
+            text-align: center;
+            font-size: 2rem;
+            margin: 20px 0;
+          }
+
+          .offers-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* ปรับขนาดการ์ดเริ่มต้น */
+            gap: 10px; /* ลดระยะห่าง */
+            padding: 85px;
+          }
+
+          .offer-card {
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(83, 83, 83, 0.1);
+            overflow: hidden;
+            text-align: center;
+            transition:
+              transform 0.3s ease,
+              box-shadow 0.3s ease;
+            max-width: 300px; /* เพิ่มขนาดกรอบ */
+            margin: auto;
+          }
+          .offer-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+          }
+
+          .offer-card img {
+            width: 100%;
+            height: 300px; /* ปรับความสูงของภาพ */
+            object-fit: cover;
+          }
+
+          .offer-card h3 {
+            font-size: 0.9rem; /* ปรับฟอนต์เล็กลง */
+            margin: 8px 0 5px;
+            color: #333;
+            font-family: 'Prompt', sans-serif;
+          }
+
+          .offer-card .price {
+            font-size: 1rem; /* ลดขนาดราคา */
+            color: #007bff;
+            margin: 5px 0;
+          }
+
+          .offer-card .old-price {
+            text-decoration: line-through;
+            color: #888;
+            font-size: 0.8rem; /* ลดขนาดราคาตัด */
+          }
+
+          .rating {
+            margin: 5px 0;
+            color: #ffa500;
+            font-size: 0.8rem; /* ลดขนาดดาว */
+          }
+
+          .btn {
+            margin: 8px;
+            padding: 6px 10px;
+            font-size: 0.8rem; /* ปรับปุ่มเล็กลง */
+          }
+
+          .btn:hover {
+            background: #00ad98;
+          }
+
+          /* ข้อเสนอพิเศษตามฤดูกาล */
+          .seasonal-offers {
+            background-color: #f8fcff;
+            padding: 20px;
+          }
+
+          /* ข้อเสนอพิเศษที่คุณไม่ควรพลาด */
+          .custom-offers {
+            background-color: #ffffff;
+            padding: 20px;
+          }
+        </style>
+      </head>
+      <body>
+        <!-- ส่วนที่ 1: ข้อเสนอพิเศษตามฤดูกาล -->
+        <section>
+          <h2>ข้อเสนอพิเศษตามฤดูกาล</h2>
+          <div class="offers-container">
+            <div class="offer-card">
+              <img src="https://pribta-tangerine.com/wp-content/uploads/2024/08/Pro1500.png" alt="Seasonal Offer 1" />
+              <h3>ตรวจโรคติดต่อทางเพศสัมพันธ์</h3>
+              <div class="price">2,820 <span class="old-price">3,200</span></div>
+              <div class="rating">★★★★★</div>
+              <a href="#" class="btn">กดดูโปร →</a>
+            </div>
+            <div class="offer-card">
+              <img
+                src="https://mersiclinic-thailand.com/wp-content/uploads/2024/07/%E0%B9%82%E0%B8%9B%E0%B8%A3%E0%B9%82%E0%B8%A1%E0%B8%8A%E0%B8%B1%E0%B9%88%E0%B8%99-Q-Switch.jpg"
+                alt="Seasonal Offer 2"
+              />
+              <h3>โปร CO2 Laser</h3>
+              <div class="price">2,199 <span class="old-price">2,500</span></div>
+              <div class="rating">★★★★☆</div>
+              <a href="#" class="btn">กดดูโปร →</a>
+            </div>
+            <div class="offer-card">
+              <img
+                src="https://image.makewebcdn.com/makeweb/m_1920x0/gR8C8Iimd/DefaultData/358691738_668603541975095_3511059683635981845_n.jpg"
+                alt="Seasonal Offer 3"
+              />
+              <h3>กายภาพบำบัด</h3>
+              <div class="price">900 <span class="old-price">1,200</span></div>
+              <div class="rating">★★★★☆</div>
+              <a href="#" class="btn">กดดูโปร →</a>
+            </div>
+            <div class="offer-card">
+              <img
+                src="https://api.ruamjairak.com/media/2023/12/27/_eqqr1zO3QfJGlcCOE6jK6HfKR8sxx.jpg"
+                alt="Seasonal Offer 4"
+              />
+              <h3>ตรวจสุขภาพหัวใจ</h3>
+              <div class="price">1,999 <span class="old-price">2,500</span></div>
+              <div class="rating">★★★★★</div>
+              <a href="#" class="btn">กดดูโปร →</a>
+            </div>
+          </div>
+        </section>
+      </body>
     </section></body>
 </html>
