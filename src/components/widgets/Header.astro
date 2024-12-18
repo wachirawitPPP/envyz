@@ -35,7 +35,15 @@ export interface Props {
   showToggleTheme?: boolean;
   showRssFeed?: boolean;
   position?: string;
-  locale?: any;
+  locale?: string;
+}
+export function getStaticPaths() {
+  return [
+    { params: { locale: "en" } },
+    { params: { locale: "fr" } },
+    { params: { locale: "th" } },
+    { params: { locale: "la" } },
+  ];
 }
 
 const {
@@ -50,6 +58,8 @@ const {
   position = 'center',
   locale = 'en',
 } = Astro.props;
+
+
 
 
 
