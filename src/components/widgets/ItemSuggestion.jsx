@@ -1,6 +1,56 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-
+const mockProducts = [
+    {
+      id: 1,
+      pdt_name: "Wireless Headphones",
+      pdt_img: "https://via.placeholder.com/200?text=Headphones",
+      price: 99.99,
+    },
+    {
+      id: 2,
+      pdt_name: "Smartphone",
+      pdt_img: "https://via.placeholder.com/200?text=Smartphone",
+      price: 799.99,
+    },
+    {
+      id: 3,
+      pdt_name: "Smartwatch",
+      pdt_img: "https://via.placeholder.com/200?text=Smartwatch",
+      price: 199.99,
+    },
+    {
+      id: 4,
+      pdt_name: "Gaming Console",
+      pdt_img: "https://via.placeholder.com/200?text=Console",
+      price: 499.99,
+    },
+    {
+      id: 5,
+      pdt_name: "Bluetooth Speaker",
+      pdt_img: "https://via.placeholder.com/200?text=Speaker",
+      price: 49.99,
+    },
+    {
+      id: 6,
+      pdt_name: "Tablet",
+      pdt_img: "https://via.placeholder.com/200?text=Tablet",
+      price: 299.99,
+    },
+    {
+      id: 7,
+      pdt_name: "Laptop",
+      pdt_img: "https://via.placeholder.com/200?text=Laptop",
+      price: 999.99,
+    },
+    {
+      id: 8,
+      pdt_name: "Camera",
+      pdt_img: "https://via.placeholder.com/200?text=Camera",
+      price: 599.99,
+    },
+  ];
+  
 const ItemSuggestion = () => {
     const [products, setProducts] = useState([]);
 
@@ -8,7 +58,7 @@ const ItemSuggestion = () => {
     const fetchProducts = async () => {
         try {
             const response = await axios.get('https://66602e275425580055b2a55d.mockapi.io/product');
-            setProducts(response.data);
+            setProducts(mockProducts);
         } catch (error) {
             console.error('Error fetching products:', error);
         }

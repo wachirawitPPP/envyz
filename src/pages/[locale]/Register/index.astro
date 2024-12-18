@@ -1,10 +1,10 @@
 ---
 import Register from "~/components/widgets/Register.astro";
 // import { getTranslations, t } from "../../../i18n";
-// const metadata = {
-//   title: 'Envyz Me  — Free template for creating websites with Astro + Tailwind CSS',
-//   ignoreTitleTemplate: true,
-// };
+const metadata = {
+  title: 'Envyz Me  — Free template for creating websites with Astro + Tailwind CSS',
+  ignoreTitleTemplate: true,
+};
 
 export function getStaticPaths() {
   return [
@@ -14,9 +14,10 @@ export function getStaticPaths() {
     { params: { locale: "la" } },
   ];
 }
+const { locale } = Astro.params;
 
 // const { locale } = Astro.params;
 ---
 <div>
-    <Register/>
+    <Register metadata={metadata} locale={locale}/>
 </div>

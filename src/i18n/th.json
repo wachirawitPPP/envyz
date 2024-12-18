@@ -10,8 +10,18 @@
     "Review":"รีวิว",
     "Article":"บทความ",
     "Register":"ลงทะเบียน",
-    "Login":"เข้าสู่ระบบ",
-    "Search":"ค้นหา"
+    "Sign In":"เข้าสู่ระบบ",
+    "Sign Up":"เข้าสู่ระบบ",
+    "Search":"ค้นหา",
+    "Firstname":"ชื่อจริง",
+    "Lastname":"นามสกุล",
+    "Email":"อีเมล์",
+    "Password":"รหัสผ่าน",
+    "Remember Password":"จำรหัสผ่าน",
+    "Forgot Password?":"ลืมรหัสผ่าน?",
+    "or sign in with":"หรือเข้าสู่ระบบด้วย",
+    "Don't have an account?":"หากคุณไม่มีบัญชี?"
+    
     
 
 }

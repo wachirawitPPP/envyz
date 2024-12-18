@@ -51,72 +51,75 @@ const {
   locale = 'en',
 } = Astro.props;
 
+
+
 const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
 ---
+
 <header
   class:list={[
-    'top-0 z-40 mx-auto w-full border-b border-gray-50/0 dark:border-gray-800 rounded-sm transition-opacity ease-in-out',
-    isSticky ? 'sticky' : 'relative',
-    isDark ? 'dark' : ''
+    { sticky: isSticky, relative: !isSticky, dark: isDark },
+    'top-0 z-40 flex-none mx-auto w-full  border-b rounded-sm border-gray-50/0 transition-[opacity] ease-in-out',
   ]}
-  {...isSticky && { 'data-aw-sticky-header': true }}
-  {...id && { id }}
+  {...isSticky ? { 'data-aw-sticky-header': true } : {}}
+  {...id ? { id } : {}}
 >
   <div class="absolute inset-0"></div>
 
   <div
     class:list={[
-      'relative py-3 px-3 md:px-6 w-full mx-auto text-default',
-      position !== 'center' ? 'md:flex md:justify-between' : 'md:grid md:grid-cols-3 md:items-center',
-      !isFullWidth && 'max-w-full'
+      'relative text-default py-3 px-3 md:px-6 mx-auto w-full',
+      {
+        'md:flex md:justify-between': position !== 'center',
+      },
+      {
+        'md:grid md:grid-cols-3 md:items-center': position === 'center',
+      },
+      {
+        'max-w-full': !isFullWidth,
+      },
     ]}
   >
-    <!-- Logo and Mobile Menu -->
-    <div class="flex justify-between md:justify-start">
-      <a class="flex items-center" href={`/${locale}`}>
+    <div class:list={[{ 'mr-auto rtl:mr-0 rtl:ml-auto': position === 'right' }, 'flex justify-between']}>
+      <a class="flex items-center" href=`/${locale}`>
         <Logo />
       </a>
-      <div class="flex items-center gap-2 md:hidden">
+      <div class="flex items-center md:hidden gap-2">
         <SwitchLang locale={locale} client:load />
         <ToggleMenu />
       </div>
     </div>
-
-    <!-- Navigation Links -->
+   
     <nav
-      class="hidden md:flex w-auto items-center text-default md:justify-center"
+      class="items-center w-full md:w-auto hidden md:flex md:mx-5 text-default overflow-y-auto overflow-x-hidden md:overflow-y-visible md:justify-self-center"
       aria-label="Main navigation"
     >
       <ul
-        class="flex flex-col md:flex-row w-full text-md md:text-sm font-medium tracking-tight md:justify-center"
+        class="flex flex-col md:flex-row md:self-center w-full md:w-auto text-md md:text-[0.9375rem] tracking-[0.01rem] lg:text-md font-medium md:justify-center"
       >
-        <li class="md:mr-4">
-          <HeaderSearchBar locale={locale} client:load />
-        </li>
         {
           links.map(({ text, href, links }) => (
-            <li class={links?.length ? 'relative group' : ''}>
+            <li class={links?.length ? 'dropdown' : ''}>
               {links?.length ? (
                 <>
                   <button
                     type="button"
-                    class="hover:text-[#53b6ac] text-gray-500 dark:hover:text-blue-300 group-hover:bg-gray-100 dark:group-hover:bg-gray-800 rounded-md p-2 flex items-center"
+                    class="hover:text-[#53b6ac] text-slate-500 dark:hover:text-blue-300 hover:bg-gray-100 dark:hover:bg-gray-800 hover:rounded-md  mx-2 p-2  flex items-center lg:justify-center whitespace-nowrap"
                   >
-                    {t(locale, text || '')}
-                    <Icon name="tabler:chevron-down" class="w-3.5 h-3.5 ml-1 hidden md:inline" />
+                    {t(locale, text || '')}{' '}
+                    <Icon name="tabler:chevron-down" class="w-3.5 h-3.5 ml-0.5 rtl:ml-0 rtl:mr-0.5 hidden md:inline" />
                   </button>
-                  <!-- Dropdown Menu -->
-                  <ul class="absolute left-0 hidden group-hover:block mt-2 w-48 bg-white dark:bg-dark border border-gray-200 dark:border-gray-700 rounded-md shadow-lg">
+                  <ul class="dropdown-menu md:backdrop-blur-md dark:md:bg-dark rounded md:absolute pl-4 md:pl-0 md:hidden font-medium md:bg-white/90 md:min-w-[200px] drop-shadow-xl">
                     {links.map(({ text: text2, href: href2 }) => (
                       <li>
                         <a
-                          href={href2}
                           class:list={[
-                            'block px-4 py-2 text-gray-500 hover:bg-gray-100 dark:hover:bg-gray-700 dark:text-white',
-                            { 'text-[#53b6ac]': href2 === currentPath },
+                            'first:rounded-t text-slate-500 hover:text-[#53b6ac]  last:rounded-b md:hover:bg-gray-100 hover:text-link dark:hover:text-white dark:hover:bg-gray-700  mx-2 p-2 block whitespace-no-wrap',
+                            { 'aw-link-active': href2 === currentPath },
                           ]}
+                          href={href2}
                         >
-                          {t(locale, text2 || '')}
+                          <span>{t(locale, text2 || '')} </span>
                         </a>
                       </li>
                     ))}
@@ -124,13 +127,13 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
                 </>
               ) : (
                 <a
-                  href={`/${locale}/${href}`}
                   class:list={[
-                    'hover:text-[#53b6ac] text-gray-500 dark:text-white dark:hover:text-blue-300 rounded-md p-2 flex items-center',
-                    { 'bg-[#53b6ac] text-white dark:bg-white dark:text-[#53b6ac]': `/${locale}/${href}` === currentPath }
+                    'hover:text-[#53b6ac] text-slate-500 dark:text-white dark:hover:text-blue-300 hover:bg-gray-100 dark:hover:bg-gray-800 hover:rounded-md mx-2 p-2  flex items-center lg:justify-center whitespace-nowrap',
+                    { 'rounded-md bg-[#53b6ac] text-white dark:text-[#53b6ac] dark:bg-white ':`/${locale}/${href}` === currentPath },
                   ]}
+                  href={`/${locale}/${href}`}
                 >
-                  {t(locale, text || '')}
+                  <span class="">{t(locale, text || '')}</span>
                 </a>
               )}
             </li>
@@ -138,72 +141,48 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
         }
       </ul>
     </nav>
-
-    <!-- User Actions -->
-    <div class="hidden md:flex items-center gap-3 justify-end">
-      <UserDropDown locale={locale} client:load />
-      {showToggleTheme && <ToggleTheme iconClass="w-5 h-5" />}
-      <SwitchLang locale={locale} client:load />
+    <div class="mx-2 flex  items-center" >
+      <HeaderSearchBar locale={locale} client:load/>
     </div>
-  </div>
+    <div
+      class:list={[
+        { 'ml-auto rtl:ml-0 rtl:mr-auto': position === 'left' },
+        'hidden md:self-center md:flex items-center md:mb-0 fixed w-full md:w-auto md:static justify-end left-0 rtl:left-auto rtl:right-0 bottom-0 p-3 md:p-0 md:justify-self-end',
+      ]}
+    >
+      <div class="items-center flex justify-between w-full md:w-auto">
+        <div class="flex">
+          <UserDropDown locale={locale} client:load />
+          {showToggleTheme && <ToggleTheme iconClass="w-6 h-6 md:w-5 md:h-5 md:inline-block" />}
+          <!-- {
+            showRssFeed && (
+              <a
+                class="text-muted dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 inline-flex items-center"
+                aria-label="RSS Feed"
+                href={getAsset('/rss.xml')}
+              >
+                <Icon name="tabler:rss" class="w-5 h-5" />
+              </a>
+            )
+          } -->
+          <div class="flex items-center">
+            <SwitchLang locale={locale} client:load />
+          </div>
 
+          {
+            actions?.length ? (
+              <span class="ml-4 rtl:ml-0 rtl:mr-4">
+                {actions.map((btnProps) => (
+                  <Button {...btnProps} class="ml-2 py-2.5 px-5.5 md:px-6 font-semibold shadow-none text-sm w-auto" />
+                ))}
+              </span>
+            ) : (
+              ''
+            )
+          }
+        </div>
 
-  <div class="fixed bottom-0 left-0 w-full bg-white border-t border-gray-200 md:hidden z-50 flex justify-around py-3">
-    <a href="/" class="flex flex-col items-center text-slate-500 hover:text-[#53b6ac]">
-      <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path
-          d="M26.8065 2.22648C25.2095 0.731741 23.1338 -0.0783628 21.0703 0.00619349C19.2346 0.0812031 17.5408 0.874941 16.3038 2.24148L15.0014 3.67757L13.6989 2.24148C12.4619 0.876305 10.7681 0.0825669 8.93241 0.00619349C6.87851 -0.0797266 4.79324 0.731741 3.19622 2.22648C1.69466 3.63257 -0.0428362 6.48839 0.000805744 9.91428C0.0444477 13.4015 1.85286 16.7579 5.37559 19.8878C6.56074 20.9421 7.96683 21.9267 9.67705 22.895C11.315 23.8224 13.1561 24.3134 15 24.3134C16.8439 24.3134 18.685 23.8224 20.323 22.895C22.0332 21.9267 23.4393 20.9434 24.6244 19.8878C28.1471 16.7565 29.9556 13.4015 29.9992 9.91428C30.0428 6.48839 28.3053 3.63257 26.8038 2.22784L26.8065 2.22648ZM23.7202 18.8691C22.6073 19.8592 21.2763 20.7879 19.6533 21.7085C16.7839 23.3315 13.2175 23.3315 10.3494 21.7085C8.72647 20.7879 7.39539 19.8592 6.28252 18.8691C3.05983 16.0023 1.40417 12.9842 1.36598 9.89519C1.31552 5.97014 3.83993 3.49209 4.12906 3.2207C5.39877 2.03145 7.02989 1.36319 8.64055 1.36319C10.2512 1.36319 11.6846 2.04782 12.6911 3.1566L14.4981 5.15049C14.7559 5.43553 15.2496 5.43553 15.5073 5.15049L17.3144 3.1566C18.3195 2.04782 19.6383 1.42865 21.1276 1.36864C22.7901 1.30591 24.5439 1.97417 25.875 3.2207C26.1642 3.49073 28.6886 5.97014 28.6381 9.89519C28.5999 12.9842 26.9429 16.0023 23.7202 18.8691Z"
-          fill="#111C2D"></path>
-      </svg>
-    </a>
-    <a href="/search" class="flex flex-col items-center text-slate-500 hover:text-[#53b6ac]">
-      <svg width="27" height="27" viewBox="0 0 27 27" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path
-          d="M2.22848 19.6406C1.03981 14.8859 0.445481 12.51 1.69372 10.9112C2.94057 9.3125 5.39271 9.3125 10.2928 9.3125H16.7072C21.6087 9.3125 24.058 9.3125 25.3063 10.9112C26.5545 12.5086 25.9602 14.8873 24.7715 19.6406C24.0151 22.6649 23.6383 24.1763 22.5106 25.0574C21.3829 25.9372 19.8243 25.9372 16.7072 25.9372H10.2928C7.1757 25.9372 5.61714 25.9372 4.48943 25.0574C3.36172 24.1763 2.98351 22.6649 2.22848 19.6406Z"
-          stroke="#111C2D"
-          stroke-width="1.25"></path>
-        <path
-          opacity="0.5"
-          d="M23.8922 10.0044L22.9085 6.39547C22.5289 5.00315 22.3391 4.30769 21.9498 3.78262C21.5617 3.26097 21.0345 2.85913 20.4287 2.62305C19.8191 2.38477 19.0987 2.38477 17.6579 2.38477M3.11133 10.0044L4.09495 6.39547C4.47455 5.00315 4.66435 4.30769 5.05364 3.78262C5.4418 3.26097 5.96895 2.85913 6.5748 2.62305C7.18437 2.38477 7.90477 2.38477 9.34558 2.38477"
-          stroke="#111C2D"
-          stroke-width="1.25"></path>
-        <path
-          d="M9.34473 2.38539C9.34473 2.01796 9.49069 1.66558 9.7505 1.40577C10.0103 1.14596 10.3627 1 10.7301 1H16.2717C16.6391 1 16.9915 1.14596 17.2513 1.40577C17.5111 1.66558 17.6571 2.01796 17.6571 2.38539C17.6571 2.75282 17.5111 3.1052 17.2513 3.36501C16.9915 3.62482 16.6391 3.77078 16.2717 3.77078H10.7301C10.3627 3.77078 10.0103 3.62482 9.7505 3.36501C9.49069 3.1052 9.34473 2.75282 9.34473 2.38539Z"
-          stroke="#111C2D"
-          stroke-width="1.25"></path>
-        <path
-          opacity="0.5"
-          d="M7.95801 14.8535V20.3951M19.0411 14.8535V20.3951M13.4996 14.8535V20.3951"
-          stroke="#111C2D"
-          stroke-width="1.25"
-          stroke-linecap="round"
-          stroke-linejoin="round"></path>
-      </svg>
-    </a>
-    <a href="/profile" class="flex flex-col items-center text-slate-500 hover:text-[#53b6ac]">
-      <svg width="27" height="26" viewBox="0 0 27 26" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path
-          d="M22.8749 11.7083V10.7291C22.8749 5.35553 18.675 1 13.5 1C8.32504 1 4.12506 5.35553 4.12506 10.7291V11.7083C4.12674 12.8771 3.79318 14.0219 3.16396 15.0068L1.62508 17.4027C0.220925 19.5902 1.29314 22.5637 3.73618 23.2554C10.1196 25.0651 16.8804 25.0651 23.2638 23.2554C25.7069 22.5637 26.7791 19.5901 25.3749 17.4041L23.836 15.0082C23.2063 14.0234 22.8723 12.8786 22.8735 11.7096L22.8749 11.7083Z"
-          stroke="#111C2D"
-          stroke-width="1.5"></path>
-      </svg>
-    </a>
-    <a href="/settings" class="flex flex-col items-center text-slate-500 hover:text-[#53b6ac]">
-      <svg width="27" height="30" viewBox="0 0 27 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path
-          opacity="0.5"
-          d="M1 12.6903C1 8.24861 1 6.02778 1.525 5.28056C2.04861 4.53472 4.13611 3.81944 8.3125 2.39028L9.10833 2.11806C11.2847 1.37222 12.3722 1 13.5 1C14.6264 1 15.7153 1.37222 17.8917 2.11806L18.6875 2.39028C22.8639 3.81944 24.9514 4.53472 25.475 5.28056C26 6.02778 26 8.25 26 12.6903V14.8764C26 22.7069 20.1125 26.5083 16.4181 28.1208C15.4167 28.5583 14.9167 28.7778 13.5 28.7778C12.0833 28.7778 11.5833 28.5583 10.5819 28.1208C6.8875 26.5069 1 22.7083 1 14.8764V12.6903Z"
-          stroke="#111C2D"
-          stroke-width="1.25"></path>
-        <path
-          d="M13.5014 13.5009C15.0355 13.5009 16.2792 12.2572 16.2792 10.7231C16.2792 9.18897 15.0355 7.94531 13.5014 7.94531C11.9673 7.94531 10.7236 9.18897 10.7236 10.7231C10.7236 12.2572 11.9673 13.5009 13.5014 13.5009Z"
-          stroke="#111C2D"
-          stroke-width="1.25"></path>
-        <path
-          d="M19.0545 19.0561C19.0545 20.5908 19.0545 21.8339 13.4989 21.8339C7.94336 21.8339 7.94336 20.5908 7.94336 19.0561C7.94336 17.5214 10.4295 16.2783 13.4989 16.2783C16.5684 16.2783 19.0545 17.5214 19.0545 19.0561Z"
-          stroke="#111C2D"
-          stroke-width="1.25"></path>
-      </svg>
-    </a>
+      </div>
+    </div>
   </div>
 </header>
