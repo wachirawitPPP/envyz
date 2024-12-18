@@ -1,0 +1,23 @@
+---
+import Layout from '~/layouts/Layout.astro';
+import type { MetaData } from '~/types';
+
+export interface Props {
+  metadata?: MetaData;
+  locale?: any;
+
+}
+
+const { metadata, locale } = Astro.props;
+---
+
+<Layout metadata={metadata} locale={locale}>
+  <!-- <slot name="announcement">
+    <HeaderAnnounce client:load/>
+  </slot> -->
+  
+  <main>
+    <slot />
+  </main>
+
+</Layout>
