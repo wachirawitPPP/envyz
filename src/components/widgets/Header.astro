@@ -82,7 +82,7 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
     </div>
 
     <nav
-      class="hidden md:flex w-auto items-center text-default md:justify-center"
+      class=" md:hidden w-auto items-center text-default md:justify-center lg:flex"
       aria-label="Main navigation"
     >
       <ul
@@ -134,19 +134,23 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
             </li>
           ))
         }
+        <li class="md:mr-4">
+          <div class="hidden md:flex items-center gap-3 justify-end">
+            <UserDropDown locale={locale} client:load />
+            {showToggleTheme && <ToggleTheme iconClass="w-5 h-5" />}
+            <SwitchLang locale={locale} client:load />
+          </div>
+        </li>
       </ul>
     </nav>
-
-    <!-- User Actions -->
-    <div class="hidden md:flex items-center gap-3 justify-end">
-      <UserDropDown locale={locale} client:load />
-      {showToggleTheme && <ToggleTheme iconClass="w-5 h-5" />}
-      <SwitchLang locale={locale} client:load />
+    <div class="md:flex md:items-center md:justify-end lg:hidden">
+      <ToggleMenu />
     </div>
+    
   </div>
 
 
-  <div class="fixed bottom-0 left-0 w-full bg-white border-t border-gray-200 md:hidden z-50 flex justify-around py-3">
+  <div class="fixed bottom-0  left-0 w-full bg-white border-t border-gray-200 md:flex z-50 flex justify-around py-3 lg:hidden">
     <a href="/" class="flex flex-col items-center text-slate-500 hover:text-[#53b6ac]">
       <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path
