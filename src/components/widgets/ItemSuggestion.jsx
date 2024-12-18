@@ -1,92 +1,71 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
-const mockProducts = [
-    {
-      id: 1,
-      pdt_name: "Wireless Headphones",
-      pdt_img: "https://via.placeholder.com/200?text=Headphones",
-      price: 99.99,
-    },
-    {
-      id: 2,
-      pdt_name: "Smartphone",
-      pdt_img: "https://via.placeholder.com/200?text=Smartphone",
-      price: 799.99,
-    },
-    {
-      id: 3,
-      pdt_name: "Smartwatch",
-      pdt_img: "https://via.placeholder.com/200?text=Smartwatch",
-      price: 199.99,
-    },
-    {
-      id: 4,
-      pdt_name: "Gaming Console",
-      pdt_img: "https://via.placeholder.com/200?text=Console",
-      price: 499.99,
-    },
-    {
-      id: 5,
-      pdt_name: "Bluetooth Speaker",
-      pdt_img: "https://via.placeholder.com/200?text=Speaker",
-      price: 49.99,
-    },
-    {
-      id: 6,
-      pdt_name: "Tablet",
-      pdt_img: "https://via.placeholder.com/200?text=Tablet",
-      price: 299.99,
-    },
-    {
-      id: 7,
-      pdt_name: "Laptop",
-      pdt_img: "https://via.placeholder.com/200?text=Laptop",
-      price: 999.99,
-    },
-    {
-      id: 8,
-      pdt_name: "Camera",
-      pdt_img: "https://via.placeholder.com/200?text=Camera",
-      price: 599.99,
-    },
-  ];
-  
+import React from 'react';
+
+const offersData = [
+  {
+    imgSrc: "https://pribta-tangerine.com/wp-content/uploads/2024/08/Pro1500.png",
+    title: "ตรวจโรคติดต่อทางเพศสัมพันธ์",
+    price: "2,820",
+    oldPrice: "3,200",
+    rating: "★★★★★",
+    link: "#"
+  },
+  {
+    imgSrc: "https://mersiclinic-thailand.com/wp-content/uploads/2024/07/%E0%B9%82%E0%B8%9B%E0%B8%A3%E0%B9%82%E0%B8%A1%E0%B8%8A%E0%B8%B1%E0%B9%88%E0%B8%99-Q-Switch.jpg",
+    title: "โปร CO2 Laser",
+    price: "2,199",
+    oldPrice: "2,500",
+    rating: "★★★★☆",
+    link: "#"
+  },
+  {
+    imgSrc: "https://image.makewebcdn.com/makeweb/m_1920x0/gR8C8Iimd/DefaultData/358691738_668603541975095_3511059683635981845_n.jpg",
+    title: "กายภาพบำบัด",
+    price: "900",
+    oldPrice: "1,200",
+    rating: "★★★★☆",
+    link: "#"
+  },
+  {
+    imgSrc: "https://api.ruamjairak.com/media/2023/12/27/_eqqr1zO3QfJGlcCOE6jK6HfKR8sxx.jpg",
+    title: "ตรวจสุขภาพหัวใจ",
+    price: "1,999",
+    oldPrice: "2,500",
+    rating: "★★★★★",
+    link: "#"
+  }
+];
+
+const OfferCard = ({ imgSrc, title, price, oldPrice, rating, link }) => (
+  <div className="bg-white rounded-lg shadow-md overflow-hidden max-w-xs mx-auto transform transition-transform hover:-translate-y-1 hover:shadow-lg">
+    <img src={imgSrc} alt={title} className="w-full h-64 object-cover" />
+    <div className="p-4 text-center">
+      <h3 className="text-lg font-medium text-gray-800">{title}</h3>
+      <div className="text-blue-600 font-bold text-lg">{price} <span className="line-through text-gray-500 text-sm">{oldPrice}</span></div>
+      <div className="text-yellow-500 text-sm">{rating}</div>
+      <a
+        href={link}
+        className="inline-block bg-blue-600 text-white px-4 py-2 mt-4 rounded hover:bg-teal-600 transition"
+      >
+        กดดูโปร →
+      </a>
+    </div>
+  </div>
+);
+
 const ItemSuggestion = () => {
-    const [products, setProducts] = useState([]);
+  return (
+    <div className="bg-gray-100 min-h-screen py-10">
+      {/* Section Header */}
+      <h2 className="text-2xl font-bold text-center mb-8">ข้อเสนอพิเศษตามฤดูกาล</h2>
 
-    // Fetch product data from API
-    const fetchProducts = async () => {
-        try {
-            const response = await axios.get('https://66602e275425580055b2a55d.mockapi.io/product');
-            setProducts(mockProducts);
-        } catch (error) {
-            console.error('Error fetching products:', error);
-        }
-    };
-
-    useEffect(() => {
-        fetchProducts();
-    }, []);
-
-    return (
-        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6 p-5">
-            {products.map((product) => (
-                <div key={product.id} className="border p-4 rounded-lg shadow-xl transform hover:scale-105 transition-transform duration-300 ease-in-out">
-                    <img
-                        src={product.pdt_img}
-                        alt={product.pdt_name}
-                        className="w-full h-56 object-cover rounded-lg mb-4"
-                    />
-                    <h3 className="text-xl font-semibold text-gray-800 mb-2">{product.pdt_name}</h3>
-                    <p className="text-lg text-gray-600 mb-3">Price: ${product.price}</p>
-                    <button className="bg-blue-500 text-white px-6 py-3 rounded-full transition-colors duration-300 hover:bg-blue-700 focus:outline-none">
-                        Add to Cart
-                    </button>
-                </div>
-            ))}
-        </div>
-    );
+      {/* Offers Container */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 px-10">
+        {offersData.map((offer, index) => (
+          <OfferCard key={index} {...offer} />
+        ))}
+      </div>
+    </div>
+  );
 };
-
 
 export default ItemSuggestion;
