@@ -102,7 +102,7 @@ const UserDropDown = ({ locale }) => {
     }`}
   >
     <div
-      className={`flex flex-col md:flex-row w-full max-w-4xl h-auto bg-gray-100 transform transition-transform duration-300 ease-in-out ${
+      className={`flex  flex-col md:flex-row w-full max-w-4xl h-auto bg-gray-100 transform transition-transform duration-300 ease-in-out   ${
         isModalOpen ? 'scale-100' : 'scale-95'
       }`}
     >
