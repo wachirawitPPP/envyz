@@ -17,10 +17,11 @@ export function getStaticPaths() {
     { params: { locale: "la" } },
   ];
 }
+const id = Astro.url.searchParams.get('id');
+console.log(id)
 ---
 <PageLayout  metadata={metadata} locale={locale}>
-  <div class="h-dvh">
-
+  <div class="h-dvh">{id}
   </div>
 </PageLayout>
 
