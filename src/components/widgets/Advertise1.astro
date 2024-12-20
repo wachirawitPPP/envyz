@@ -528,16 +528,17 @@
   </section>
         </section>
       </body>
-    </section></body>
-</html>
+    </section>
 
 
 
+
+<!DOCTYPE html>
 <html lang="th">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>แนะนำคลินิกและ HDcare</title>
+    <title>HDcare</title>
     <style>
         * {
             margin: 0;
@@ -548,63 +549,6 @@
 
         body {
             background-color: #f5f7fa;
-        }
-
-        /* ส่วนคลินิกแนะนำ */
-        .clinic-section {
-            text-align: center;
-            margin: 20px 0;
-        }
-
-        .clinic-section h2 {
-            font-size: 2rem;
-            margin-bottom: 20px;
-            color: #333;
-        }
-
-        .clinic-cards {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-
-        .clinic-card {
-            background: #fff;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            border-radius: 10px;
-            width: 300px;
-            text-align: left;
-            overflow: hidden;
-        }
-
-        .clinic-card img {
-            width: 100%;
-            height: auto;
-        }
-
-        .clinic-card .clinic-info {
-            padding: 15px;
-        }
-
-        .clinic-card h3 {
-            font-size: 1.2rem;
-            margin-bottom: 10px;
-            color: #007bb5;
-        }
-
-        .clinic-card p {
-            font-size: 0.9rem;
-            color: #666;
-            line-height: 1.4;
-        }
-
-        .clinic-card a {
-            display: inline-block;
-            margin-top: 10px;
-            text-decoration: none;
-            color: #00a5e3;
-            font-weight: bold;
         }
 
         /* ส่วน HDcare */
@@ -620,22 +564,31 @@
             margin-bottom: 20px;
         }
 
+        .hdcare-section p {
+            margin-bottom: 20px;
+            font-size: 1rem;
+        }
+
         .hdcare-features {
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
             gap: 30px;
-            margin-top: 20px;
         }
 
         .hdcare-feature {
-            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            color: inherit;
             width: 120px;
+            text-align: center;
         }
 
         .hdcare-feature img {
-            width: 60px;
-            height: 60px;
+            width: 80px;
+            height: 80px;
             margin-bottom: 10px;
         }
 
@@ -646,46 +599,43 @@
     </style>
 </head>
 <body>
-
- 
-       <!-- ส่วน HDcare -->
-       <section class="hdcare-section">
+    <section class="hdcare-section">
         <h2>ผ่าตัดกับ Envyz me care</h2>
         <p>ไม่ยุ่งยาก ไม่น่ากลัวอย่างที่คิด</p>
         <div class="hdcare-features">
-            <div class="hdcare-feature">
+            <a href="https://example.com/surgery-popular" class="hdcare-feature">
                 <img src="https://static.hd.co.th/750x450/system/image_attachments/images/000/255/934/original/Surgery_Icon_i1.png" alt="ผ่าตัดที่คนสนใจมาก">
                 <p>ผ่าตัดที่คนสนใจมาก</p>
-            </div>
-            <div class="hdcare-feature">
+            </a>
+            <a href="https://example.com/abdominal" class="hdcare-feature">
                 <img src="https://static.hd.co.th/750x450/system/image_attachments/images/000/255/935/original/Surgery_Icon_i2.png" alt="ช่องท้องและทางเดินอาหาร">
                 <p>ช่องท้องและทางเดินอาหาร</p>
-            </div>
-            <div class="hdcare-feature">
+            </a>
+            <a href="https://example.com/skin-bone-joints" class="hdcare-feature">
                 <img src="https://static.hd.co.th/750x450/system/image_attachments/images/000/255/936/original/Surgery_Icon_i3.png" alt="ผิว กระดูก และข้อ">
                 <p>ผิว กระดูก และข้อ</p>
-            </div>
-            <div class="hdcare-feature">
+            </a>
+            <a href="https://example.com/womens-health" class="hdcare-feature">
                 <img src="https://static.hd.co.th/750x450/system/image_attachments/images/000/255/937/original/Surgery_Icon_i4.png" alt="สุขภาพผู้หญิง">
                 <p>สุขภาพผู้หญิง</p>
-            </div>
-            <div class="hdcare-feature">
-              <img src="https://static.hd.co.th/750x450/system/image_attachments/images/000/255/938/original/Surgery_Icon_i5.png" alt="สุขภาพผู้หญิง">
-              <p>สุขภาพผู้ชาย</p>
-          </div>
-            <div class="hdcare-feature">
+            </a>
+            <a href="https://example.com/mens-health" class="hdcare-feature">
+                <img src="https://static.hd.co.th/750x450/system/image_attachments/images/000/255/938/original/Surgery_Icon_i5.png" alt="สุขภาพผู้ชาย">
+                <p>สุขภาพผู้ชาย</p>
+            </a>
+            <a href="https://example.com/ent-health" class="hdcare-feature">
                 <img src="https://static.hd.co.th/750x450/system/image_attachments/images/000/255/939/original/Surgery_Icon_i6.png" alt="หู คอ จมูก">
                 <p>หู คอ จมูก</p>
-            </div>
-            <div class="hdcare-feature">
+            </a>
+            <a href="https://example.com/other-procedures" class="hdcare-feature">
                 <img src="https://static.hd.co.th/750x450/system/image_attachments/images/000/255/940/original/Surgery_Icon_i7.png" alt="หัตถการอื่นๆ">
                 <p>หัตถการอื่นๆ</p>
-            </div>
+            </a>
         </div>
     </section>
-
 </body>
 </html>
+
 
 
 <html lang="en">
