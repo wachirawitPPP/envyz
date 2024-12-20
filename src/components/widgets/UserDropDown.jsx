@@ -184,6 +184,9 @@ const UserDropDown = ({ locale }) => {
           </div>
 
           <button
+          onClick={()=>{
+            localStorage.setItem("token","asdasdasd")
+          }}
             type="submit"
             className="w-full py-2 bg-emerald-500 text-white rounded-md font-medium text-lg hover:bg-emerald-600 transition"
           >
