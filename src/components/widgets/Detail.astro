@@ -1,4 +1,7 @@
 ---
+import CustomerReviews from "./CustomerReviews.astro";
+import ItemsSuggestion from "./ItemSuggestion";
+
 const product = {
   title: 'HIFU Lifting Treatment',
   rating: 4.8,
@@ -14,6 +17,7 @@ const product = {
   description: `HIFU (High Intensity Focus Ultrasound) คือการนำคลื่น Ultrasound ซึ่งเป็นคลื่นที่ปลอดภัยมาใช้ในการยกกระชับใบหน้าโดยพลังงานที่ยิงจะลงลึกถึงโครงสร้างเนื้อเยื่อชั้นในที่ยึดมีหน้าที่โครงสร้างใบหน้า (SMAS)`,
 };
 
+const {locale} = Astro.params
 const clinic = {
   name: 'APS Clinic',
   address: '📍 888/88 ตำบลบ้านเป็ด อำเภอเมือง จังหวัดขอนแก่น รหัสไปรษณีย์ 40000',
@@ -232,63 +236,12 @@ const clinic = {
             <p class="text-sm text-gray-600">📍 888/88 ตำบลบ้านเป็ด อำเภอเมือง จังหวัดขอนแก่น รหัสไปรษณีย์ 40000</p>
           </div>
         </div>
+        <div>
+          <CustomerReviews/>
+        </div>
         <div class="mt-12">
           <h2 class="text-xl font-bold text-gray-800 mb-4">You might also like</h2>
-          <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
-            <!-- Similar Product Card -->
-            {
-              [1, 2, 3, 4].map((item, index) => (
-                <div key={index} class="border rounded-lg shadow-md p-4">
-                  <img
-                    src="https://static.hdmall.co.th/1146x735/webp/system/brands/general_brand_images/318/original/health-checkup_%E0%B8%AA%E0%B8%A7%E0%B8%99%E0%B8%81%E0%B8%A7%E0%B8%B2%E0%B8%87%E0%B8%95%E0%B8%B8%E0%B9%89%E0%B8%87%E0%B8%84%E0%B8%A5%E0%B8%B4%E0%B8%99%E0%B8%B4%E0%B8%81-08.jpg"
-                    alt="Product"
-                    class="w-full h-32 object-cover rounded-lg"
-                  />
-                  <h3 class="text-sm font-medium mt-2">The cleanser face wash</h3>
-                  <div class="flex items-center gap-2 text-sm text-gray-600">
-                    <span class="text-yellow-400">⭐⭐⭐⭐</span>
-                    <span>(87)</span>
-                  </div>
-                  <p class="text-[var(--color-turquoise)] font-bold">$16.25</p>
-                  <p class="text-gray-500 line-through">$24.26</p>
-                  <div class="flex gap-2 mt-4">
-                    <button class="p-2 bg-gray-200 rounded-full hover:bg-gray-300 button-group">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke-width="1.5"
-                        stroke="currentColor"
-                        class="w-5 h-5"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"
-                        />
-                      </svg>
-                    </button>
-                    <button class="p-2 bg-gray-200 rounded-full hover:bg-gray-300">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke-width="1.5"
-                        stroke="#40E0D0"
-                        class="w-5 h-5"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          d="M3 3h18M5 3l1 9h12l1-9H5zm1 0v1h12V3H6zm0 12v1h12v-1H6zm1 1h10v3H7v-3z"
-                        />
-                      </svg>
-                    </button>
-                  </div>
-                </div>
-              ))
-            }
-          </div>
+          <ItemsSuggestion locale={locale} />
         </div>
       </div>
     </div>
