@@ -1,197 +1,214 @@
-import React from "react";
-
-const SeasonalOffers = () => {
-  const mockProducts = [
-    {
-      id: 1,
-      name: "ตรวจโรคติดต่อทางเพศสัมพันธ์",
-      img: "https://pribta-tangerine.com/wp-content/uploads/2024/08/Pro1500.png",
-      price: "2,820",
-      oldPrice: "3,200",
-      rating: 5,
-      tag: "ขายดี",
-    },
-    {
-      id: 2,
-      name: "โปร CO2 Laser",
-      img: "https://mersiclinic-thailand.com/wp-content/uploads/2024/07/%E0%B9%82%E0%B8%9B%E0%B8%A3%E0%B9%82%E0%B8%A1%E0%B8%8A%E0%B8%B1%E0%B9%88%E0%B8%99-Q-Switch.jpg",
-      price: "2,199",
-      oldPrice: "2,500",
-      rating: 4,
-      tag: "ลดราคา",
-    },
-    {
-      id: 3,
-      name: "กายภาพบำบัด",
-      img: "https://image.makewebcdn.com/makeweb/m_1920x0/gR8C8Iimd/DefaultData/358691738_668603541975095_3511059683635981845_n.jpg",
-      price: "900",
-      oldPrice: "1,200",
-      rating: 4,
-      tag: "ใหม่!",
-    },
-    {
-      id: 4,
-      name: "ตรวจสุขภาพหัวใจ",
-      img: "https://api.ruamjairak.com/media/2023/12/27/_eqqr1zO3QfJGlcCOE6jK6HfKR8sxx.jpg",
-      price: "1,999",
-      oldPrice: "2,500",
-      rating: 5,
-      tag: "แนะนำ",
-    },
-    {
-      id: 5,
-      name: "ตรวจโรคติดต่อทางเพศสัมพันธ์",
-      img: "https://pribta-tangerine.com/wp-content/uploads/2024/08/Pro1500.png",
-      price: "2,820",
-      oldPrice: "3,200",
-      rating: 5,
-      tag: "ขายดี",
-    },
-    {
-      id: 6,
-      name: "โปร CO2 Laser",
-      img: "https://mersiclinic-thailand.com/wp-content/uploads/2024/07/%E0%B9%82%E0%B8%9B%E0%B8%A3%E0%B9%82%E0%B8%A1%E0%B8%8A%E0%B8%B1%E0%B9%88%E0%B8%99-Q-Switch.jpg",
-      price: "2,199",
-      oldPrice: "2,500",
-      rating: 4,
-      tag: "ลดราคา",
-    },
-    {
-      id: 7,
-      name: "กายภาพบำบัด",
-      img: "https://image.makewebcdn.com/makeweb/m_1920x0/gR8C8Iimd/DefaultData/358691738_668603541975095_3511059683635981845_n.jpg",
-      price: "900",
-      oldPrice: "1,200",
-      rating: 4,
-      tag: "ใหม่!",
-    },
-    {
-      id: 8,
-      name: "ตรวจสุขภาพหัวใจ",
-      img: "https://api.ruamjairak.com/media/2023/12/27/_eqqr1zO3QfJGlcCOE6jK6HfKR8sxx.jpg",
-      price: "1,999",
-      oldPrice: "2,500",
-      rating: 5,
-      tag: "แนะนำ",
-    },
-  ];
-
-  const customerReviews = [
-    {
-      id: 1,
-      name: "คุณมะลิ พ.",
-      img: "https://i.pinimg.com/736x/e0/d6/70/e0d670d16bbad299ec0fd467c031fe7e.jpg",
-      review: "บริการดีมากค่ะ คุณหมอให้คำแนะนำอย่างละเอียด พนักงานก็เป็นกันเอง ราคาก็เหมาะสมมาก",
-      rating: 5,
-    },
-    {
-      id: 2,
-      name: "คุณสมชาย ก.",
-      img: "https://i.pinimg.com/736x/91/24/74/9124747c62bcc94451d40bb08708aaf6.jpg",
-      review: "ซื้อคอร์สดูแลผิวผ่านเว็บไซต์นี้ ได้ผลลัพธ์ดีเกินคาดค่ะ ราคาก็ถูกกว่าในคลินิกทั่วไป",
-      rating: 5,
-    },
-    {
-      id: 3,
-      name: "คุณวรรณา ว.",
-      img: "https://i.pinimg.com/736x/55/5e/c5/555ec520b022cb78b02597bf08c420bb.jpg",
-      review: "โปรโมชั่นเยอะมากและราคาถูกกว่าเคยเจอ ประทับใจตั้งแต่ใช้ครั้งแรกเลยค่ะ",
-      rating: 5,
-    },
-    {
-      id: 4,
-      name: "คุณมะลิ พ.",
-      img: "https://i.pinimg.com/736x/e0/d6/70/e0d670d16bbad299ec0fd467c031fe7e.jpg",
-      review: "บริการดีมากค่ะ คุณหมอให้คำแนะนำอย่างละเอียด พนักงานก็เป็นกันเอง ราคาก็เหมาะสมมาก",
-      rating: 5,
-    },
-    {
-      id: 5,
-      name: "คุณสมชาย ก.",
-      img: "https://i.pinimg.com/736x/91/24/74/9124747c62bcc94451d40bb08708aaf6.jpg",
-      review: "ซื้อคอร์สดูแลผิวผ่านเว็บไซต์นี้ ได้ผลลัพธ์ดีเกินคาดค่ะ ราคาก็ถูกกว่าในคลินิกทั่วไป",
-      rating: 5,
-    },
-    {
-      id: 6,
-      name: "คุณวรรณา ว.",
-      img: "https://i.pinimg.com/736x/55/5e/c5/555ec520b022cb78b02597bf08c420bb.jpg",
-      review: "โปรโมชั่นเยอะมากและราคาถูกกว่าเคยเจอ ประทับใจตั้งแต่ใช้ครั้งแรกเลยค่ะ",
-      rating: 5,
-    },
-  ];
-
+import React, { useState } from 'react';
+const data = [
+  {
+    id: 1,
+    imgSrc: 'https://pribta-tangerine.com/wp-content/uploads/2024/08/Pro1500.png',
+    title: 'ตรวจโรคติดต่อทางเพศสัมพันธ์',
+    price: '2,820',
+    oldPrice: '3,200',
+    rating: '★★★★★',
+    link: '#',
+  },
+  {
+    id: 2,
+    imgSrc:
+      'https://mersiclinic-thailand.com/wp-content/uploads/2024/07/%E0%B9%82%E0%B8%9B%E0%B8%A3%E0%B9%82%E0%B8%A1%E0%B8%8A%E0%B8%B1%E0%B9%88%E0%B8%99-Q-Switch.jpg',
+    title: 'โปร CO2 Laser',
+    price: '2,199',
+    oldPrice: '2,500',
+    rating: '★★★★☆',
+    link: '#',
+  },
+  {
+    id: 3,
+    imgSrc:
+      'https://image.makewebcdn.com/makeweb/m_1920x0/gR8C8Iimd/DefaultData/358691738_668603541975095_3511059683635981845_n.jpg',
+    title: 'กายภาพบำบัด',
+    price: '900',
+    oldPrice: '1,200',
+    rating: '★★★★☆',
+    link: '#',
+  },
+  {
+    id: 4,
+    imgSrc: 'https://api.ruamjairak.com/media/2023/12/27/_eqqr1zO3QfJGlcCOE6jK6HfKR8sxx.jpg',
+    title: 'ตรวจสุขภาพหัวใจ',
+    price: '1,999',
+    oldPrice: '2,500',
+    rating: '★★★★★',
+    link: '#',
+  },
+];
+const OfferCard = ({ imgSrc, title, price, oldPrice, rating, id, handleForMoreClick }) => {
   return (
-    <div className="bg-white py-8">
-      {/* Seasonal Offers Section */}
-      <div className="px-20">
-        <h2 className="text-3xl font-extrabold text-center text-gray-900 mb-8">
-          ข้อเสนอพิเศษตามฤดูกาล
-        </h2>
-        <div className="grid grid-cols- sm:grid-cols-10 lg:grid-cols-5 gap-5">
-          {mockProducts.map((product) => (
-            <div
-              key={product.id}
-              className="bg-white shadow-lg rounded-xl overflow-hidden text-center relative group transition-transform transform hover:-translate-y-2 hover:shadow-2xl"
-            >
-              <div className="absolute top-2 right-2 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded-full shadow-md">
-                {product.tag}
-              </div>
-              <img
-                src={product.img}
-                alt={product.name}
-                className="w-full aspect-square object-contain bg-gray-100 group-hover:scale-105 transition-transform duration-300"
-              />
-              <div className="p-4">
-                <h3 className="text-lg font-semibold text-gray-800 mb-2">
-                  {product.name}
-                </h3>
-                <p className="text-xl text-blue-600 font-bold">
-                  ฿{product.price}{" "}
-                  <span className="text-gray-400 text-base line-through">
-                    ฿{product.oldPrice}
-                  </span>
-                </p>
-                <div className="text-yellow-500 text-sm my-2">
-                  {"★".repeat(product.rating)}
-                  {"☆".repeat(5 - product.rating)}
-                </div>
-                <button className="mt-4 px-5 py-2 rounded-full bg-teal-500 text-white text-sm font-medium hover:bg-teal-800 transition">
-                  ดูโปรโมชัน →
-                </button>
-              </div>
+    <div
+      className={`bg-white rounded-lg shadow-lg transition-transform duration-500 ease-out hover:-translate-y-2 hover:shadow-2xl`}
+    >
+      <div className="flex flex-row -space-x-8">
+        <img src={imgSrc} alt={title} className="   object-cover w-full" />
+        <div className="pt-2 text-white bg-teal-500 h-16 rounded-b-md ">
+          <div className="hover:-translate-y-2 transition-transform">
+            <div>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="icon icon-tabler icons-tabler-outline icon-tabler-shield-plus"
+              >
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path d="M12.462 20.87c-.153 .047 -.307 .09 -.462 .13a12 12 0 0 1 -8.5 -15a12 12 0 0 0 8.5 -3a12 12 0 0 0 8.5 3a12 12 0 0 1 .11 6.37" />
+                <path d="M16 19h6" />
+                <path d="M19 16v6" />
+              </svg>
             </div>
-          ))}
+            <div>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="icon icon-tabler icons-tabler-outline icon-tabler-user-star"
+              >
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0" />
+                <path d="M6 21v-2a4 4 0 0 1 4 -4h.5" />
+                <path d="M17.8 20.817l-2.172 1.138a.392 .392 0 0 1 -.568 -.41l.415 -2.411l-1.757 -1.707a.389 .389 0 0 1 .217 -.665l2.428 -.352l1.086 -2.193a.392 .392 0 0 1 .702 0l1.086 2.193l2.428 .352a.39 .39 0 0 1 .217 .665l-1.757 1.707l.414 2.41a.39 .39 0 0 1 -.567 .411l-2.172 -1.138z" />
+              </svg>
+            </div>
+          </div>
         </div>
       </div>
 
-      {/* Customer Reviews Section */}
-      <div className="py-10 bg-gray-50">
-        <h2 className="text-3xl font-bold text-gray-800 text-center mb-6">
-          เสียงตอบรับจากลูกค้าของเรา
-        </h2>
-        <div className="flex gap-6 max-w-5xl mx-auto animate-scroll overflow-hidden hover:animate-none">
-          {customerReviews.map((review) => (
-            <div
-              key={review.id}
-              className="flex-none bg-white border border-gray-200 rounded-lg shadow-lg p-6 text-center w-64"
+      <div className="p-4">
+        <h3 className="text-lg font-bold text-gray-900">{title}</h3>
+        <div className="flex flex-row mt-2">
+          <div className="border-2 p-1 border-gray-200 rounded-md flex items-center">
+            <img
+              className=" w-10 h-10"
+              src="https://www.apsth.com/assets/images/logo/logo.svg"
+              alt="รูทส์ ฟิสิโอ คลินิกกายภาพบำบัด"
+            />
+          </div>
+          <div className="flex-1 ml-2  items-center">
+            <h3 className=" flex items-center">เอพีเอสทีเอช คลินิกกายภาพบำบัด</h3>
+          </div>
+        </div>
+
+        <p className="text-sm text-gray-600 py-2">พบกับข้อเสนอสุดพิเศษประจำฤดูกาลนี้ ไม่ควรพลาด!</p>
+        <div className="flex justify-between items-center mt-2">
+          <div className="text-xl font-bold text-red-400">฿{price}</div>
+          <span className="ml-2 text-sm font-medium text-gray-400 line-through">฿{oldPrice}</span>
+        </div>
+        <div className="flex justify-between items-center mt-2">
+          <div className="flex items-center">
+            <div className="text-sm font-slim  text-red-400">ซื้อแล้ว</div>
+            <span className="ml-1 text-sm font-slim  text-gray-400">3,200</span>
+            <div className="text-sm  ml-1 font-slim  text-red-400">ครั้ง</div>
+          </div>
+          <div className="text-yellow-500 text-sm">{rating}</div>
+        </div>
+        <div className="flex gap-2 mt-2">
+          {/* View Details Button */}
+          <button
+            onClick={() => {
+              handleForMoreClick(id);
+            }}
+            className="flex-1 py-2 bg-gradient-to-r from-blue-500 to-teal-400 text-white rounded-lg text-sm font-medium shadow hover:opacity-90 transition"
+          >
+            ดูรายละเอียด
+          </button>
+          {/* Add to Cart Button */}
+          <div className="relative group">
+            <button
+              onClick={() => {
+                // Add to cart logic
+                console.log(`Added ${title} to cart`);
+              }}
+              className="p-2 bg-gradient-to-r from-teal-500 to-blue-400 text-white rounded-lg text-sm font-medium shadow hover:bg-accent transition"
             >
-              <img
-                src={review.img}
-                alt={review.name}
-                className="w-16 h-16 mx-auto rounded-full mb-4"
-              />
-              <h3 className="text-lg font-medium text-gray-700">{review.name}</h3>
-              <p className="text-sm text-gray-600 mt-2">{review.review}</p>
-              <div className="text-yellow-500 text-lg mt-3">
-                {"★".repeat(review.rating)}
+              <div>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="icon icon-tabler icons-tabler-outline icon-tabler-basket-plus"
+                >
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                  <path d="M17 10l-2 -6" />
+                  <path d="M7 10l2 -6" />
+                  <path d="M12 20h-4.756a3 3 0 0 1 -2.965 -2.544l-1.255 -7.152a2 2 0 0 1 1.977 -2.304h13.999a2 2 0 0 1 1.977 2.304l-.359 2.043" />
+                  <path d="M10 14a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+                  <path d="M16 19h6" />
+                  <path d="M19 16v6" />
+                </svg>
               </div>
+            </button>
+            {/* Tooltip */}
+            <div className="absolute z-20 bottom-full left-1/2 transform -translate-x-1/2 mb-2 min-w-max max-w-xs px-3 py-1 bg-gray-900 text-white text-xs rounded-lg opacity-0 group-hover:opacity-100 transition-opacity">
+              Add to Cart
             </div>
-          ))}
+          </div>
         </div>
       </div>
     </div>
   );
 };
 
-export default SeasonalOffers;
+const ItemsSuggestion = ({ locale }) => {
+  const itemsPerPage = 8; // Number of items to display per page
+  const [currentPage, setCurrentPage] = useState(1);
+
+  // Calculate total pages
+  const totalPages = Math.ceil(data.length / itemsPerPage);
+
+  // Get the items for the current page
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const currentItems = data.slice(startIndex, startIndex + itemsPerPage);
+
+  const handleForMoreClick = (id) => {
+    return (window.location.href = `/${locale}/product/detail/${id}`);
+  };
+
+  const handlePageChange = (page) => {
+    if (page >= 1 && page <= totalPages) {
+      setCurrentPage(page);
+    }
+  };
+
+  return (
+    <div className="bg-white rounded-lg shadow-lg p-4 sm:p-6 max-w-full mx-8 mt-6 mb-6">
+      <div className="lg:flex">
+        {/* Main Content */}
+        <div className="flex-1">
+          {/* Search and Sort Bar */}
+
+          {/* Offers Container */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {currentItems.map((offer) => (
+              <OfferCard key={offer.id} handleForMoreClick={handleForMoreClick} {...offer} />
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default ItemsSuggestion;
