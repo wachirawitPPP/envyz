@@ -20,7 +20,8 @@ const product = {
   oldPrice: '1,200',
   rating: '★★★★☆',
   link: '#',
-  description: 'บริการกายภาพบำบัดที่ออกแบบมาเพื่อฟื้นฟูร่างกาย ช่วยลดอาการปวด และเสริมสร้างความแข็งแรงของกล้ามเนื้อและข้อต่อ.',
+  description:
+    'บริการกายภาพบำบัดที่ออกแบบมาเพื่อฟื้นฟูร่างกาย ช่วยลดอาการปวด และเสริมสร้างความแข็งแรงของกล้ามเนื้อและข้อต่อ.',
   category: 'Health & Wellness',
   benefits: [
     'ลดอาการปวดกล้ามเนื้อและข้อ',
@@ -30,11 +31,7 @@ const product = {
   ],
   duration: '60 นาที',
   requirements: 'กรุณานัดหมายล่วงหน้าอย่างน้อย 1 วัน.',
-  availableTimes: [
-    'จันทร์-ศุกร์: 09:00 - 18:00',
-    'เสาร์: 10:00 - 16:00',
-    'อาทิตย์: ปิดทำการ',
-  ],
+  availableTimes: ['จันทร์-ศุกร์: 09:00 - 18:00', 'เสาร์: 10:00 - 16:00', 'อาทิตย์: ปิดทำการ'],
   reviews: [
     {
       reviewer: 'คุณสมชาย',
@@ -57,7 +54,6 @@ const product = {
   },
 };
 
-
 // export function getStaticPaths() {
 //   return [
 //     { params: { locale: "en" } },
@@ -73,7 +69,167 @@ const { locale, productId } = Astro.params;
 ---
 
 <PageLayout locale={locale} metadata={metadata}>
-  <span>
-    {productId}
-  </span>
-</PageLayout>
+  <!-- Main Product Section -->
+  <div class="relative flex flex-col lg:flex-row gap-8 bg-white shadow-lg rounded-lg p-6">
+    <!-- Product Images -->
+    <div class="flex-1 relative">
+      <!-- Heart Icon -->
+      <div id="wishlistIcon" 
+           class="absolute top-4 right-4 bg-white p-2 rounded-full shadow-lg cursor-pointer transition duration-300 hover:bg-gray-100">
+        <svg id="heartIcon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-gray-400">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+        </svg>
+      </div>
+      
+  <div class="grid lg:grid-cols-2 gap-8 bg-white shadow-lg rounded-lg p-6">
+    <!-- Product Image and Thumbnails -->
+    <div>
+      <img id="mainImage" 
+     src="https://static.hdmall.co.th/1056x1056/webp/system/brands/general_brand_images/5435/original/IMG_1747_mix_resize.jpg" 
+     alt="Main Product" 
+     class="w-full rounded-lg object-cover h-83">
+      <div class="flex gap-2 mt-4 overflow-x-auto">
+        <img src="https://static.hdmall.co.th/1056x1056/webp/system/image_attachments/images/000/246/126/original/bo-new-gen-program-100-units-the-cover-clinic.jpg" alt="Thumbnail 1" class="w-20 h-20 object-cover border rounded-lg hover:shadow-md cursor-pointer" onclick="changeImage(this.src)">
+        <img src="https://static.hdmall.co.th/1056x1056/webp/system/brands/general_brand_images/5431/original/IMG_1731_mix_resize.jpg" alt="Thumbnail 2" class="w-20 h-20 object-cover border rounded-lg hover:shadow-md cursor-pointer" onclick="changeImage(this.src)">
+        <img src="https://static.hdmall.co.th/1056x1056/webp/system/brands/general_brand_images/3382/original/S__68690107.jpg" alt="Thumbnail 3" class="w-20 h-20 object-cover border rounded-lg hover:shadow-md cursor-pointer" onclick="changeImage(this.src)">
+      </div>
+    </div>
+    
+    <!-- Product Details -->
+    <div>
+      <h1 class="text-3xl font-bold text-gray-800">ยกกระชับใบหน้า HIFU - ทั่วใบหน้า</h1>
+      <div class="flex items-center gap-2 mt-2 text-[var(--color-turquoise)]">
+        <span>⭐⭐⭐⭐⭐</span>
+        <span class="text-gray-600">4.8 (287 reviews)</span>   
+      </div>
+      
+      <div class="mt-4">
+        <p class="text-gray-600 mt-2 leading-relaxed">HIFU (High Intensity Focus Ultrasound) คือการนำคลื่น Ultrasound ซึ่งเป็นคลื่นที่ปลอดภัยมาใช้ในการยกกระชับใบหน้าโดยพลังงานที่ยิงจะลงลึกถึงโครงสร้างเนื้อเยื่อชั้นในที่ยึดมีหน้าที่โครงสร้างใบหน้า (SMAS) </p>
+        <p class="text-4xl font-bold text-teal-500">฿1600</p>
+        <p class="text-gray-500 line-through">฿3500</p>
+
+      </div>
+      <div class="mt-4 flex flex-col gap-4">
+        <div class="flex flex-col gap-4">
+          <!-- ปุ่มแรก -->
+          <button class="flex items-center gap-4 py-2 px-4 rounded-md border border-gray-300 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-teal-400">
+            <img src="https://png.pngtree.com/png-vector/20240312/ourlarge/pngtree-cartoon-character-doctor-png-image_11931235.png" 
+                 alt="Dr. Skin" class="w-16 h-16 rounded-full">
+            <div>
+              <div class="flex items-center gap-2">
+                <p class="text-gray-700 font-medium">Dr. Silco</p>
+                <span class="text-green-500 text-sm material-icons">✔️ Verified</span>
+              </div>
+              <p class="text-gray-500 text-sm">Dr.Silco@aps.com</p>
+            </div>
+          </button>
+        
+          <!-- ปุ่มที่สอง -->
+          <button class="flex items-center gap-4 py-2 px-4 rounded-md border border-gray-300 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-teal-400">
+            <img src="https://png.pngtree.com/png-clipart/20240909/original/pngtree-half-body-doctor-man-cartoon-character-transparent-background-png-image_15979182.png" 
+                 alt="Dr. Skin" class="w-16 h-16 rounded-full">
+            <div>
+              <div class="flex items-center gap-2">
+                <p class="text-gray-700 font-medium">Dr. Jinx</p>
+                <span class="text-green-500 text-sm material-icons">✔️ Verified</span>
+              </div>
+              <p class="text-gray-500 text-sm">dr.jinx2@aps.com</p>
+            </div>
+          </button>
+        </div>
+      </div>
+      <div class="mt-6">
+        <label for="qty" class="block text-sm font-medium text-gray-700">Qty:</label>
+        <input type="number" id="qty" value="1" min="1"
+               class="w-20 border rounded-md p-2 mt-2 text-center shadow-sm focus:ring-[var(--color-turquoise)] focus:border-[var(--color-turquoise)]">
+      </div>
+      <div class="flex gap-4 mt-6">
+        <!-- Add to Cart Button -->
+        <button class="w-full py-2 px-4 rounded-full text-teal-500 bg-white border border-teal-500 hover:bg-teal-500 hover:text-white focus:ring-2 focus:ring-teal-400 focus:outline-none shadow-md">
+          Add to Cart
+        </button>
+        
+        <!-- Buy Now Button -->
+        <button class="w-full py-2 px-4 rounded-full text-white bg-teal-500 hover:bg-teal-600 focus:ring-2 focus:ring-teal-400 focus:outline-none shadow-md">
+          Buy Now
+        </button>
+        
+      </div>
+      <div class="mt-6 space-y-4">
+        <!-- Description Button -->
+        <a
+          href="#description"
+          class="flex justify-between items-center py-4 border-b border-gray-200 text-gray-800 font-medium hover:text-[var(--color-turquoise)] transition"
+        >
+          <span>Description</span>
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M5.293 9.293a1 1 0 011.414 0L10 12.586l3.293-3.293a1 1 0 011.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+          </svg>
+        </a>
+      
+        <!-- Reviews Button -->
+        <a
+          href="#reviews"
+          class="flex justify-between items-center py-4 border-b border-gray-200 text-gray-800 font-medium hover:text-[var(--color-turquoise)] transition"
+        >
+          <span>87 Reviews</span>
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M5.293 9.293a1 1 0 011.414 0L10 12.586l3.293-3.293a1 1 0 011.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+          </svg>
+        </a>
+      </div>
+      <div class="mt-6">
+      </div>
+    </div>
+  </div>
+<!-- Clinic Information Section -->
+<div class="mt-6 border rounded-lg p-4 flex items-center shadow-md">
+  <!-- Clinic Logo -->
+  <img
+  src="https://www.apsth.com/assets/images/logo/logo.svg"
+  alt="APSX Clinic Logo"
+  class="w-16 h-16 rounded-md object-contain"
+/>
+  <!-- Clinic Details -->
+  <div class="ml-4">
+    <h3 class="text-lg font-semibold text-gray-800">APS Clinic</h3>
+    <div class="flex items-center gap-1 text-yellow-400">
+      <!-- Star Ratings -->
+      <span>⭐⭐⭐⭐⭐</span>
+    </div>
+    <p class="text-sm text-gray-600">คลินิกเวชกรรม</p>
+    <p class="text-sm text-gray-600">
+      📍 888/88 ตำบลบ้านเป็ด อำเภอเมือง จังหวัดขอนแก่น รหัสไปรษณีย์ 40000
+    </p>
+  </div>
+</div>
+<div class="mt-12">
+  <h2 class="text-xl font-bold text-gray-800 mb-4">You might also like</h2>
+  <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
+    <!-- Similar Product Card -->
+    {[1, 2, 3, 4].map((item, index) => (
+      <div key={index} class="border rounded-lg shadow-md p-4">
+        <img src="https://static.hdmall.co.th/1146x735/webp/system/brands/general_brand_images/318/original/health-checkup_%E0%B8%AA%E0%B8%A7%E0%B8%99%E0%B8%81%E0%B8%A7%E0%B8%B2%E0%B8%87%E0%B8%95%E0%B8%B8%E0%B9%89%E0%B8%87%E0%B8%84%E0%B8%A5%E0%B8%B4%E0%B8%99%E0%B8%B4%E0%B8%81-08.jpg" alt="Product" class="w-full h-32 object-cover rounded-lg">
+        <h3 class="text-sm font-medium mt-2">The cleanser face wash</h3>
+        <div class="flex items-center gap-2 text-sm text-gray-600">
+          <span class="text-yellow-400">⭐⭐⭐⭐</span>
+          <span>(87)</span>
+        </div>
+        <p class="text-[var(--color-turquoise)] font-bold">$16.25</p>
+        <p class="text-gray-500 line-through">$24.26</p>
+        <div class="flex gap-2 mt-4">
+          <button class="p-2 bg-gray-200 rounded-full hover:bg-gray-300">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+            </svg>
+          </button>
+          <button class="p-2 bg-gray-200 rounded-full hover:bg-gray-300">
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="#40E0D0" class="w-5 h-5">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M3 3h18M5 3l1 9h12l1-9H5zm1 0v1h12V3H6zm0 12v1h12v-1H6zm1 1h10v3H7v-3z" />
+  </svg>
+</button>
+        </div>
+      </div>
+    ))}
+  </div>
+</div></PageLayout>
