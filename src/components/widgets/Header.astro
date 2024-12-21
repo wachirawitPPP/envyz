@@ -53,7 +53,13 @@ const {
 } = Astro.props;
 
 const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
+let isMenuOpen = false;
+
+const toggleMenu = () => {
+  isMenuOpen = !isMenuOpen;
+};
 ---
+
 <header
   class:list={[
     'top-0 z-40 mx-auto w-full border-b border-gray-50/0 dark:border-gray-800 rounded-sm transition-opacity ease-in-out',
@@ -78,18 +84,21 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
       </a>
       <div class="flex items-center gap-2 lg:hidden">
         <SwitchLang locale={locale} client:load />
-        <ToggleMenu />
+        
+      <ToggleMenu/>        
       </div>
     </div>
-
     <nav
-      class="md:hidden w-auto items-center text-default md:justify-center lg:flex"
+      class:list={[
+        isMenuOpen ? 'block' : 'hidden',
+        'absolute top-full left-0 w-full bg-white dark:bg-gray-800 shadow-md flex flex-col items-start gap-4 px-4 py-2 lg:flex lg:items-center lg:static lg:w-auto lg:bg-transparent lg:shadow-none'
+      ]}
       aria-label="Main navigation"
     >
       <ul
-        class="flex flex-col md:flex-row w-full text-md md:text-sm font-medium tracking-tight md:justify-center"
+        class="flex flex-col lg:flex-row w-full text-md lg:text-sm font-medium tracking-tight lg:justify-center"
       >
-        <li class="md:mr-4">
+        <li class="lg:mr-4">
           <HeaderSearchBar locale={locale} client:load />
         </li>
         {
@@ -134,8 +143,8 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
             </li>
           ))
         }
-        <li class="md:mr-4">
-          <div class="hidden md:flex items-center gap-3 justify-end">
+        <li class="lg:mr-4">
+          <div class="hidden lg:flex items-center gap-3 justify-end">
             <UserDropDown locale={locale} client:load />
             {showToggleTheme && <ToggleTheme iconClass="w-5 h-5" />}
             <SwitchLang locale={locale} client:load />
@@ -143,11 +152,7 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
         </li>
       </ul>
     </nav>
-    <!-- <div class="md:flex md:items-center md:justify-end lg:hidden">
-      <SwitchLang locale={locale} client:load />
-      <ToggleMenu />
-    </div> -->
   </div>
 
-<Menu/>
+<Menu />
 </header>
