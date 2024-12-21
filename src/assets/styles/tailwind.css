@@ -54,13 +54,22 @@
   @apply py-3;
 } */
 
-#header.expanded nav {
+/* #header.expanded nav {
   position: fixed;
   top: 70px;
   left: 0;
   right: 0;
   bottom: 70px !important;
   padding: 0 5px;
+} */
+#header.expanded nav {
+  position: fixed;
+  top: 70px;
+  left: 0;
+  right: 0;
+  bottom: 70px !important;
+  padding: 14px 7px 5px 7px;
+  margin: 36px 0px -23px 0px;
 }
 
 .dropdown:focus .dropdown-menu,
