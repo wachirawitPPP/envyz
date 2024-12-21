@@ -74,24 +74,26 @@ const toggleMenu = () => {
   <div
     class:list={[
       'relative py-3 px-3 md:px-6 w-full mx-auto text-default',
-      position !== 'center' ? 'md:flex md:justify-between' : 'md:grid md:grid-cols-3 md:items-center',
+      position !== 'center' ? 'lg:flex lg:justify-between' : 'lg:grid lg:grid-cols-3 lg:items-center',
       !isFullWidth && 'max-w-full'
     ]}
   >
-    <div class="flex justify-between md:justify-start">
+  <div class="flex flex-row">
+    <div class="basis-full">
       <a class="flex items-center" href={`/${locale}`}>
         <Logo />
       </a>
-      <div class="flex items-center gap-2 lg:hidden">
-        <SwitchLang locale={locale} client:load />
-        
-      <ToggleMenu/>        
-      </div>
     </div>
+    <div class="basis-0 flex items-center gap-1 lg:hidden">
+      <SwitchLang locale={locale} client:load />
+      {showToggleTheme && <ToggleTheme iconClass="w-5 h-5" />}
+      <ToggleMenu />
+    </div>
+  </div>
     <nav
       class:list={[
         isMenuOpen ? 'block' : 'hidden',
-        'absolute top-full left-0 w-full bg-white dark:bg-gray-800 shadow-md flex flex-col items-start gap-4 px-4 py-2 lg:flex lg:items-center lg:static lg:w-auto lg:bg-transparent lg:shadow-none'
+        'absolute top-full left-0 w-full bg-white lg:justify-center dark:bg-gray-800 shadow-md flex flex-col items-start gap-4 px-4 py-2 lg:flex lg:items-center lg:static lg:w-auto lg:bg-transparent lg:shadow-none'
       ]}
       aria-label="Main navigation"
     >
