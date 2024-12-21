@@ -76,7 +76,7 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
       <a class="flex items-center" href={`/${locale}`}>
         <Logo />
       </a>
-      <div class="flex items-center gap-2 md:hidden">
+      <div class="flex items-center gap-2 lg:hidden">
         <SwitchLang locale={locale} client:load />
         <ToggleMenu />
       </div>
@@ -104,7 +104,6 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
                     {t(locale, text || '')}
                     <Icon name="tabler:chevron-down" class="w-3.5 h-3.5 ml-1 hidden lg:inline" />
                   </button>
-                  <!-- Dropdown Menu -->
                   <ul class="absolute left-0 hidden group-hover:block mt-2 w-48 bg-white dark:bg-dark border border-gray-200 dark:border-gray-700 rounded-md shadow-lg">
                     {links.map(({ text: text2, href: href2 }) => (
                       <li>
@@ -145,6 +144,7 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
       </ul>
     </nav>
     <!-- <div class="md:flex md:items-center md:justify-end lg:hidden">
+      <SwitchLang locale={locale} client:load />
       <ToggleMenu />
     </div> -->
   </div>

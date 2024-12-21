@@ -13,7 +13,7 @@ const HeaderSearchBar = (locale) => {
   return (
     <form
       onSubmit={handleSearch}
-      className="flex items-center bg-white rounded-lg shadow-md px-4 py-2 w-full max-w-md"
+      className="flex items-center bg-white rounded-lg shadow-md px-4 py-2 w-full max-w"
     >
       {/* Search Input */}
       <input
